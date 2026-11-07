@@ -40,7 +40,7 @@ Tryb pełny działa tylko na kopii bazy. Część procedur WAPRO przy błędzie 
 ### Wymagania
 
 - WAPRO Mag na SQL Server, uprawnienia sysadmina na czas zakładania loginów (raz).
-- Maszyna z serwerem MCP (Windows). **Wersja .exe nie wymaga instalowania Node.js** — środowisko jest w pliku. Wersja .zip wymaga **Node.js 24.20.0** (dokładnie ta wersja; numer w `app/RUNTIME.txt` i w opisie wydania).
+- Maszyna z serwerem MCP (Windows). Nie wymaga instalowania Node.js — środowisko jest wbudowane w plik `.exe`.
 - **Python 3** tylko raz, do wygenerowania katalogu z Twojej bazy (krok 3).
 - Dostęp sieciowy z tej maszyny do SQL Server (TCP 1433), z logowaniem SQL (tryb mieszany).
 - Klient MCP, np. [Claude Code](https://docs.claude.com/en/docs/claude-code) albo Claude Desktop.
@@ -53,10 +53,9 @@ Kup klucz u właściciela repozytorium (kontakt przez profil GitHub), podając N
 
 ### 1. Pobranie
 
-Z zakładki [Releases](https://github.com/Zakwei/mcp-wapromag/releases) pobierz jedną z paczek i rozpakuj, np. do `C:\mcp-wapromag`. Dalsze polecenia uruchamiasz w tym folderze. Obie wersje mają ten sam zestaw dodatków: `SZYBKI-START.md` (5 kroków), skrypty SQL (`scripts/`), narzędzia do katalogu (`tools/recon/`) i licencje bibliotek open source (`THIRD-PARTY-NOTICES.txt`); żadna nie zawiera kodu źródłowego.
+Z zakładki [Releases](https://github.com/Zakwei/mcp-wapromag/releases) pobierz paczkę **`mcp-wapromag-win-x64-<wersja>.zip`** (Windows) i rozpakuj, np. do `C:\mcp-wapromag`. Dalsze polecenia uruchamiasz w tym folderze.
 
-- **`mcp-wapromag-win-x64-<wersja>.zip` (zalecane, Windows)** — jeden plik `mcp-wapromag.exe` z wbudowanym Node.js i kodem w postaci bajtowej. Nie trzeba instalować Node.
-- **`mcp-wapromag-<wersja>.zip`** — aplikacja jako kod bajtowy (`app/mcp-wapromag.jsc`) z loaderem (`app/mcp-wapromag.js`); wymaga zainstalowanego Node.js w wersji z `app/RUNTIME.txt`. Dla Linux/macOS albo gdy wolisz własne Node.
+Paczka to jeden plik `mcp-wapromag.exe` z wbudowanym Node.js i kodem w postaci bajtowej (nie trzeba instalować Node), a obok: `SZYBKI-START.md` (5 kroków), skrypty SQL (`scripts/`), narzędzia do katalogu (`tools/recon/`) i licencje bibliotek open source (`THIRD-PARTY-NOTICES.txt`). Nie zawiera kodu źródłowego.
 
 ### 2. Login SQL tylko do odczytu
 
@@ -121,11 +120,9 @@ Zmienne środowiskowe (przekazuje je klient MCP, krok 5):
 
 ### 5. Rejestracja w kliencie MCP
 
-Polecenie serwera zależy od pobranej paczki:
-- wersja **.exe**: `<folder_aplikacji>\mcp-wapromag.exe` (bez `node`);
-- wersja **.zip (Node)**: `node <folder_aplikacji>\app\mcp-wapromag.js`.
+Serwer uruchamia plik `<folder_aplikacji>\mcp-wapromag.exe` (bez `node`).
 
-**Claude Code** (tryb tylko do odczytu), wersja .exe:
+**Claude Code** (tryb tylko do odczytu):
 
 ```
 claude mcp add wapro-mag -s user \
@@ -134,8 +131,6 @@ claude mcp add wapro-mag -s user \
   -e WAPRO_LICENSE_KEY=<klucz> \
   -- <folder_aplikacji>\mcp-wapromag.exe
 ```
-
-Wersja .zip (Node): zamień ostatnią linię na `-- node <folder_aplikacji>\app\mcp-wapromag.js`.
 
 **Claude Desktop**: w `claude_desktop_config.json` (Ustawienia → Developer → Edit Config):
 
@@ -157,8 +152,6 @@ Wersja .zip (Node): zamień ostatnią linię na `-- node <folder_aplikacji>\app\
 }
 ```
 
-Wersja .zip (Node): `"command": "node"`, `"args": ["<folder_aplikacji>\app\mcp-wapromag.js"]`.
-
 **Inny klient MCP**: uruchom polecenie serwera (jak wyżej) z transportem stdio i zmiennymi z kroku 4.
 
 Hasło trafia do konfiguracji klienta (u Claude Code `~/.claude.json`). Chroń ten plik jak hasło.
@@ -166,7 +159,7 @@ Hasło trafia do konfiguracji klienta (u Claude Code `~/.claude.json`). Chroń t
 ### 6. Sprawdzenie
 
 - Claude Code: nowa sesja, `/mcp` pokazuje `wapro-mag` z 4 narzędziami (tryb pełny: 6).
-- Ręcznie, w folderze aplikacji, z ustawionymi zmiennymi: `node app/mcp-wapromag.js`. Na stderr powinno się pojawić `catalog: <liczba> endpoints`, potem serwer czeka na klienta (Ctrl+C kończy).
+- Ręcznie, w folderze aplikacji, z ustawionymi zmiennymi środowiskowymi: uruchom `mcp-wapromag.exe`. Na stderr powinno się pojawić `catalog: <liczba> endpoints`, potem serwer czeka na klienta (Ctrl+C kończy).
 - Problemy:
   - `Brak klucza licencji` / `Nieprawidłowy klucz licencji` / `Licencja wygasła` / `w tej bazie WAPRO nie ma firmy z tym NIP`: krok 0;
   - `Brak katalogu`: wróć do kroku 3;

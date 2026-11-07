@@ -40,7 +40,7 @@ Tryb pełny działa tylko na kopii bazy. Część procedur WAPRO przy błędzie 
 ### Wymagania
 
 - WAPRO Mag na SQL Server, uprawnienia sysadmina na czas zakładania loginów (raz).
-- Maszyna z serwerem MCP: **Node.js ≥ 24**, **Python 3** (tylko do wygenerowania katalogu).
+- Maszyna z serwerem MCP: **Node.js 24.20.0** (dokładnie ta wersja — aplikacja to kod bajtowy V8 przypięty do wersji Node; numer jest też w `app/RUNTIME.txt` i w opisie wydania), **Python 3** (tylko do wygenerowania katalogu).
 - Dostęp sieciowy z tej maszyny do SQL Server (TCP 1433), z logowaniem SQL (tryb mieszany).
 - Klient MCP, np. [Claude Code](https://docs.claude.com/en/docs/claude-code) albo Claude Desktop.
 
@@ -52,7 +52,7 @@ Kup klucz u właściciela repozytorium (kontakt przez profil GitHub), podając N
 
 ### 1. Pobranie
 
-Pobierz `mcp-wapromag-<wersja>.zip` z zakładki [Releases](https://github.com/Zakwei/mcp-wapromag/releases) i rozpakuj, np. do `C:\mcp-wapromag`. Paczka zawiera gotową aplikację (`app/mcp-wapromag.mjs`, jeden plik, bez instalowania zależności), skrypty SQL (`scripts/`), narzędzia do katalogu (`tools/recon/`) i licencje użytych bibliotek open source (`THIRD-PARTY-NOTICES.txt`). Dalsze polecenia uruchamiasz w tym folderze.
+Pobierz `mcp-wapromag-<wersja>.zip` z zakładki [Releases](https://github.com/Zakwei/mcp-wapromag/releases) i rozpakuj, np. do `C:\mcp-wapromag`. Paczka zawiera gotową aplikację jako kod bajtowy (`app/mcp-wapromag.jsc`) z loaderem (`app/mcp-wapromag.js`) — bez kodu źródłowego i bez instalowania zależności — skrypty SQL (`scripts/`), narzędzia do katalogu (`tools/recon/`) oraz licencje użytych bibliotek open source (`THIRD-PARTY-NOTICES.txt`). Dalsze polecenia uruchamiasz w tym folderze.
 
 ### 2. Login SQL tylko do odczytu
 
@@ -124,7 +124,7 @@ claude mcp add wapro-mag -s user \
   -e WAPRO_SQL_SERVER=<host> -e WAPRO_SQL_DATABASE=<baza> \
   -e WAPRO_SQL_RO_USER=mcp_wapro_ro -e WAPRO_SQL_RO_PASSWORD=<hasło> \
   -e WAPRO_LICENSE_KEY=<klucz> \
-  -- node <folder_aplikacji>/app/mcp-wapromag.mjs
+  -- node <folder_aplikacji>/app/mcp-wapromag.js
 ```
 
 **Claude Desktop**: w `claude_desktop_config.json` (Ustawienia → Developer → Edit Config):
@@ -134,7 +134,7 @@ claude mcp add wapro-mag -s user \
   "mcpServers": {
     "wapro-mag": {
       "command": "node",
-      "args": ["<folder_aplikacji>/app/mcp-wapromag.mjs"],
+      "args": ["<folder_aplikacji>/app/mcp-wapromag.js"],
       "env": {
         "WAPRO_SQL_SERVER": "<host>",
         "WAPRO_SQL_DATABASE": "<baza>",
@@ -147,14 +147,14 @@ claude mcp add wapro-mag -s user \
 }
 ```
 
-**Inny klient MCP**: polecenie `node <folder_aplikacji>/app/mcp-wapromag.mjs`, transport stdio, zmienne z kroku 4.
+**Inny klient MCP**: polecenie `node <folder_aplikacji>/app/mcp-wapromag.js`, transport stdio, zmienne z kroku 4.
 
 Hasło trafia do konfiguracji klienta (u Claude Code `~/.claude.json`). Chroń ten plik jak hasło.
 
 ### 6. Sprawdzenie
 
 - Claude Code: nowa sesja, `/mcp` pokazuje `wapro-mag` z 4 narzędziami (tryb pełny: 6).
-- Ręcznie, w folderze aplikacji, z ustawionymi zmiennymi: `node app/mcp-wapromag.mjs`. Na stderr powinno się pojawić `catalog: <liczba> endpoints`, potem serwer czeka na klienta (Ctrl+C kończy).
+- Ręcznie, w folderze aplikacji, z ustawionymi zmiennymi: `node app/mcp-wapromag.js`. Na stderr powinno się pojawić `catalog: <liczba> endpoints`, potem serwer czeka na klienta (Ctrl+C kończy).
 - Problemy:
   - `Brak klucza licencji` / `Nieprawidłowy klucz licencji` / `Licencja wygasła` / `w tej bazie WAPRO nie ma firmy z tym NIP`: krok 0;
   - `Brak katalogu`: wróć do kroku 3;

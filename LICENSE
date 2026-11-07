@@ -1,0 +1,61 @@
+Licencja mcp-wapromag (oprogramowanie płatne)
+Copyright (c) 2026 Zakwei. Wszelkie prawa zastrzeżone.
+
+1. Korzystanie z oprogramowania wymaga zakupionego, ważnego klucza licencji
+   wydanego przez właściciela. Z kluczem wolno pobrać kod i uruchamiać go bez
+   zmian, w okresie, dla odbiorcy i dla NIP firmy wskazanych w kluczu, na własny użytek lub
+   wewnętrzny użytek własnej organizacji, zgodnie z README. Dodanie własnej
+   konfiguracji i plików generowanych według README (katalog endpointów, opisy
+   czynności) nie jest modyfikacją w rozumieniu tej licencji. Bez klucza wolno
+   jedynie przeglądać kod.
+
+   Licencja jest bezterminowa, chyba że klucz wskazuje datę wygaśnięcia, i
+   obejmuje wersje oprogramowania wydane do końca okresu aktualizacji wskazanego
+   w kluczu. Korzystanie z wersji wydanych później wymaga przedłużenia okresu
+   aktualizacji (nowego klucza).
+
+2. Bez pisemnej zgody właściciela nie wolno:
+   a) modyfikować kodu ani tworzyć utworów zależnych (przeróbek, adaptacji,
+      tłumaczeń), także na własny użytek;
+   b) usuwać, wyłączać, obchodzić ani zmieniać mechanizmu sprawdzania licencji;
+   c) udostępniać klucza licencji osobom trzecim ani używać go poza zakresem
+      wskazanym w kluczu;
+   d) kopiować kodu ani jego części do innych projektów;
+   e) rozpowszechniać, publikować, udostępniać, sprzedawać ani sublicencjonować
+      kodu lub jego kopii, także zmienionych;
+   f) usuwać ani zmieniać tej licencji i oznaczeń autorstwa.
+
+3. Rozwidlenie (fork) w serwisie hostującym repozytorium jest dozwolone tylko
+   w zakresie, którego wymagają warunki tego serwisu, i nie daje prawa do
+   korzystania z oprogramowania.
+
+4. Oprogramowanie jest dostarczane „tak jak jest”, bez jakiejkolwiek gwarancji.
+   Właściciel nie odpowiada za szkody wynikłe z jego użycia, w tym za zmiany
+   w bazach danych.
+
+5. Zakup klucza i zgoda na inne użycie: kontakt przez profil właściciela
+   repozytorium.
+
+---
+
+mcp-wapromag License (paid software)
+Copyright (c) 2026 Zakwei. All rights reserved.
+
+Use requires a purchased, valid license key issued by the owner. With a key you
+may download the code and run it unmodified, within the period and for the
+licensee and company tax ID (NIP) stated in the key, for your own use or your organization's internal
+use, as described in the README. Adding your own configuration and the files the
+README tells you to generate is not a modification. Without a key you may only
+view the code. The licence is perpetual unless the key states an expiry date,
+and covers versions released until the end of the update period stated in the
+key; versions released later require an extended update period (a new key).
+Without the owner's written permission you may not modify the
+code or create derivative works (even for your own use), remove, disable,
+circumvent or change the license check, share the license key with third parties
+or use it beyond its scope, copy the code or any part of it into other projects,
+distribute, publish, share, sell or sublicense it or any copy (modified or not),
+or remove or change this license. Forking on the hosting service is allowed only
+to the extent its terms require and grants no right to use the software. The
+software is provided "as is", without warranty of any kind; the owner is not
+liable for any damage arising from its use. Purchase and other permissions:
+contact the repository owner via their profile. The Polish text above prevails.

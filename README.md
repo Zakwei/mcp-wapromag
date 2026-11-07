@@ -6,6 +6,17 @@ Serwer [MCP](https://modelcontextprotocol.io) (stdio) dla **WAPRO Mag** na SQL S
 >
 > Projekt niezależny, niezwiązany z producentem WAPRO. WAPRO jest znakiem towarowym jego właściciela. Paczka nie zawiera żadnych plików ani danych WAPRO: katalog endpointów generujesz z własnej, licencjonowanej instalacji (sekcja [Katalog endpointów](#3-katalog-endpointów)). Testowane na WAPRO Mag 9.20 i SQL Server 2022.
 
+## Zakup
+
+**Cena: 2 900 zł netto** jednorazowo — licencja wieczysta na jedną firmę (NIP), z 12 miesiącami aktualizacji. Przedłużenie aktualizacji: **580 zł netto/rok**. Po okresie aktualizacji posiadana wersja działa dalej bez ograniczeń.
+
+**Jak kupić:**
+1. Napisz na **dawid.d@ddnet.com.pl**, podając **NIP firmy z WAPRO** (klucz jest przypisany do tego NIP) oraz dane do faktury.
+2. Otrzymasz dane do płatności i fakturę.
+3. Po zaksięgowaniu wpłaty dostajesz **klucz licencji** i link do pobrania aplikacji.
+
+Dalej: [Instalacja](#instalacja) — uruchomienie w ok. 15 minut (5 kroków, zebrane też w `SZYBKI-START.md`).
+
 ## Dwa tryby
 
 | | **Tylko do odczytu** (produkcja) | **Pełny** (wyłącznie baza testowa) |
@@ -49,7 +60,7 @@ Tryb pełny działa tylko na kopii bazy. Część procedur WAPRO przy błędzie 
 
 **Cena: 2 900 zł netto jednorazowo** za licencję wieczystą na jedną firmę (NIP), z 12 miesiącami aktualizacji. **Przedłużenie aktualizacji: 580 zł netto za kolejny rok.** Po końcu okresu aktualizacji posiadana wersja działa dalej bez ograniczeń; nowsze wersje wymagają przedłużenia.
 
-Kup klucz u właściciela repozytorium (kontakt przez profil GitHub), podając NIP firmy z WAPRO. Klucz to jeden ciąg znaków, ważny dla wskazanego odbiorcy i okresu, przypisany do tego NIP: serwer startuje tylko wtedy, gdy w podłączonej bazie WAPRO jest firma z tym NIP. Serwer sprawdza go przy starcie, bez połączenia z internetem. Bez ważnego klucza kończy pracę z komunikatem „Brak klucza licencji”, „Nieprawidłowy klucz licencji”, „Licencja wygasła” albo „Licencja obejmuje wersje wydane do …” (wersja nowsza niż okres aktualizacji: użyj wcześniejszej wersji z zakładki Releases albo przedłuż aktualizacje).
+Kup klucz — patrz sekcja [Zakup](#zakup) (e-mail: **dawid.d@ddnet.com.pl**), podając NIP firmy z WAPRO. Klucz to jeden ciąg znaków, ważny dla wskazanego odbiorcy i okresu, przypisany do tego NIP: serwer startuje tylko wtedy, gdy w podłączonej bazie WAPRO jest firma z tym NIP. Serwer sprawdza go przy starcie, bez połączenia z internetem. Bez ważnego klucza kończy pracę z komunikatem „Brak klucza licencji”, „Nieprawidłowy klucz licencji”, „Licencja wygasła” albo „Licencja obejmuje wersje wydane do …” (wersja nowsza niż okres aktualizacji: użyj wcześniejszej wersji z zakładki Releases albo przedłuż aktualizacje).
 
 ### 1. Pobranie
 
@@ -252,4 +263,4 @@ Bez nich serwer działa, tylko `wapro_activity` nic nie zwraca.
 
 ## Licencja
 
-Oprogramowanie płatne, wszelkie prawa zastrzeżone (plik [LICENSE](LICENSE)). Korzystanie wymaga zakupionego klucza licencji: 2 900 zł netto jednorazowo (licencja wieczysta na NIP firmy, 12 miesięcy aktualizacji), przedłużenie aktualizacji 580 zł netto rocznie. Z kluczem wolno uruchamiać aplikację bez zmian, w wersjach wydanych w okresie aktualizacji. Kod źródłowy nie jest udostępniany. Bez pisemnej zgody właściciela nie wolno modyfikować kodu, obchodzić sprawdzania licencji, udostępniać klucza, kopiować kodu do innych projektów ani go rozpowszechniać.
+Oprogramowanie płatne, wszelkie prawa zastrzeżone (plik [LICENSE](LICENSE)). Korzystanie wymaga zakupionego klucza licencji: 2 900 zł netto jednorazowo (licencja wieczysta na NIP firmy, 12 miesięcy aktualizacji), przedłużenie aktualizacji 580 zł netto rocznie. Z kluczem wolno uruchamiać aplikację bez zmian, w wersjach wydanych w okresie aktualizacji. Kod źródłowy nie jest udostępniany. Bez pisemnej zgody właściciela nie wolno modyfikować kodu, obchodzić sprawdzania licencji, udostępniać klucza, kopiować kodu do innych projektów ani go rozpowszechniać. Zakup klucza: **dawid.d@ddnet.com.pl** (sekcja [Zakup](#zakup)).

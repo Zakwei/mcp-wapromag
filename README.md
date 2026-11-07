@@ -53,7 +53,7 @@ Kup klucz u właściciela repozytorium (kontakt przez profil GitHub), podając N
 
 ### 1. Pobranie
 
-Z zakładki [Releases](https://github.com/Zakwei/mcp-wapromag/releases) pobierz jedną z paczek i rozpakuj, np. do `C:\mcp-wapromag`. Dalsze polecenia uruchamiasz w tym folderze. Obie wersje mają ten sam zestaw dodatków: skrypty SQL (`scripts/`), narzędzia do katalogu (`tools/recon/`) i licencje bibliotek open source (`THIRD-PARTY-NOTICES.txt`); żadna nie zawiera kodu źródłowego.
+Z zakładki [Releases](https://github.com/Zakwei/mcp-wapromag/releases) pobierz jedną z paczek i rozpakuj, np. do `C:\mcp-wapromag`. Dalsze polecenia uruchamiasz w tym folderze. Obie wersje mają ten sam zestaw dodatków: `SZYBKI-START.md` (5 kroków), skrypty SQL (`scripts/`), narzędzia do katalogu (`tools/recon/`) i licencje bibliotek open source (`THIRD-PARTY-NOTICES.txt`); żadna nie zawiera kodu źródłowego.
 
 - **`mcp-wapromag-win-x64-<wersja>.zip` (zalecane, Windows)** — jeden plik `mcp-wapromag.exe` z wbudowanym Node.js i kodem w postaci bajtowej. Nie trzeba instalować Node.
 - **`mcp-wapromag-<wersja>.zip`** — aplikacja jako kod bajtowy (`app/mcp-wapromag.jsc`) z loaderem (`app/mcp-wapromag.js`); wymaga zainstalowanego Node.js w wersji z `app/RUNTIME.txt`. Dla Linux/macOS albo gdy wolisz własne Node.
